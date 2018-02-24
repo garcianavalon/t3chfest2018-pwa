@@ -1,45 +1,48 @@
 <template>
   <div>
-    <div v-for="card in cards" :key="card.id">
-      <h1>{{ card.title}}</h1>
-      <img :src="card.image" :alt="card.title">
+    <div v-for="card in cards" :key="card.name">
+      <h1>{{ card.name}}</h1>
+      <!-- <img :src="card.src" :alt="card.name"> -->
     </div>
   </div>
 </template>
 
 <script>
+import * as firebase from 'firebase'
+
 export default {
   name: 'list',
   data () {
     return {
       cards: [
-        {
-          'id': 'golds',
-          'title': 'Ace of Golds',
-          'image': require('../assets/golds.jpeg')
-        },
-        {
-          'id': 'big_sticks',
-          'title': 'Ace of Big Sticks',
-          'image': require('../assets/big_sticks.jpeg')
-        },
-        {
-          'id': 'cups',
-          'title': 'Ace of Cups',
-          'image': require('../assets/cups.png')
-        },
-        {
-          'id': 'swords',
-          'title': 'Ace of Swords',
-          'image': require('../assets/swords.jpeg')
-        }
       ]
     }
+  },
+  mounted () {
+    const db = firebase.firestore()
+    // const storage = firebase.storage().ref()
+    const _this = this
+    db.collection('cards').get().then((querySnapshot) => {
+      // const cards = []
+      querySnapshot.forEach((doc) => {
+        _this.cards.push(doc.data())
+      })
+      /*
+      return Promise.all(cards.map(card => {
+        return storage.child(card.image).getDownloadURL().then(url => {
+          card.src = url
+          _this.cards.push(card)
+          console.log('loaded %s', card)
+        })
+      })) */
+    }).then(() => {
+      console.log('all loaded')
+    })
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<!-- Add "scoped" attribute to limit CSS to this _this only -->
 <style>
 h1, h2 {
   font-weight: normal;
