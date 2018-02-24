@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <header>
-      <span>Vue.js PWA</span>
+      <span>Heraclio Fournier Catalogue</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <img src="./assets/heraclio.jpeg" alt="Heraclio Fournier">
       <router-view></router-view>
     </main>
   </div>
