@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import List from '@/components/List'
+import Agenda from '@/components/agenda'
 
 Vue.use(Router)
 
@@ -8,8 +8,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'List',
-      component: List
+      name: 'agenda',
+      component: Agenda
     }
   ]
 })

@@ -1,10 +1,9 @@
 <template>
   <div id="app">
     <header>
-      <span>Heraclio Fournier Catalogue</span>
+      <span>My agenda</span>
     </header>
     <main>
-      <img src="./assets/heraclio.jpeg" alt="Heraclio Fournier">
       <router-view></router-view>
     </main>
   </div>
