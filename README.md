@@ -4,6 +4,7 @@ Offline first PWA for my T3chfest 21018 Workshop
 
 You can find the slides [here](https://speakerdeck.com/garcianavalon/offlinefirst-pwa-con-firebase-y-vue-dot-js)
 
+And a live version [here](https://t3chfest2018.firebaseapp.com)
 ## Setup
 
 ``` bash
